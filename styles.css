@@ -16,8 +16,9 @@ h1 {
     margin: 20px 0;
     color: #3366cc; /* Blue color */
 }
-.regAddition{
-    color:red;
+
+#mainDisplay {
+    /* Add styles for the main display if needed */
 }
 
 /* Buttons styling */
@@ -53,6 +54,7 @@ button:hover {
 /* Top sheet styles */
 .topSheet {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 10px;
 }
@@ -68,6 +70,10 @@ button:hover {
     margin-top: 5px;
 }
 
+.regAddition{
+    color:red;
+}
+
 /* Regiment stats styles */
 .regimentStats {
     display: flex;
@@ -76,7 +82,7 @@ button:hover {
 }
 
 .regimentBox {
-    width: 48%;
+    width: 100%;
     margin-top: 10px;
 }
 
@@ -89,7 +95,7 @@ button:hover {
 
 /* Individual skill styles */
 .skill {
-    width: 48%;
+    width: 100%;
     margin-top: 10px;
 }
 
@@ -103,7 +109,7 @@ button:hover {
 
 /* Starting stuffs container */
 .startingStuffs {
-    width: 48%;
+    width: 100%;
     margin-top: 10px;
 }
 
@@ -123,3 +129,14 @@ button:hover {
 }
 
 /* Add more styles as needed */
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 600px) {
+    .regimentBox, .skill, .startingStuffs {
+        width: 100%;
+    }
+
+    .topSheet {
+        flex-direction: column;
+    }
+}
