@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<head>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Only War character sheet Generator</h1>
+
+    <div id="mainDisplay">
+
+    </div>
+    <h2>Select Regiment stuffs:</h2>
+    <!--Regiment generator buttons-->
+<button onclick="characterGenerator.clear()">Clear All</button>
+    <div class="selectReg">
+        <button onclick="regimentGenerator.generateCadiaRegiment()">Cadia</button>
+        <button onclick="regimentGenerator.generateCatachanRegiment()">Catachan</button>
+        <button onclick="regimentGenerator.generateKriegRegiment()">Krieg</button>
+        <button onclick="regimentGenerator.generateElysianRegiment()">Elysian Drop Troops</button>
+        <button onclick="regimentGenerator.generateJanissariesRegiment()">Maccabian Janissaries</button>
+        <button onclick="regimentGenerator.generateMordianRegiment()">Mordian Iron Guard</button>
+        <button onclick="regimentGenerator.generateTallarnRegiment()">Tallarn Desert Raiders</button>
+        <button onclick="regimentGenerator.generateVostroyanRegiment()">Vostroyan Firstborn</button>
+    </div>
+    <div class="randomRegGen">
+        <button onclick = "regimentGenerator.generateRegiment()">Generate Random Regiment</button>
+    </div>
+        
+        <!--Class and stat generator buttons-->
+        <div id="charButtons">
+            <button onclick = "characterGenerator.clear()">Clear</button>
+            Choose specialty:<br>
+            <button id="generateRandom" onclick="characterGenerator.generateCharacter()">Random Character</button>
+            <button id="heavyGunner" onclick="characterGenerator.generateHeavyGunner()">Heavy Gunner</button>
+            <button id="medic" onclick="characterGenerator.generateMedic()">Medic</button>
+            <button id="operator" onclick="characterGenerator.generateOperator()" >Operator</button>
+            <button id="sergeant" onclick="characterGenerator.generateSergeant()"  >Sergeant</button>
+            <button id="weaponSpecialist" onclick="characterGenerator.generateSpecialist()" >Weapon Specialist</button>
+            <button id="commisar" onclick="characterGenerator.generateCommisar()" >Commisar</button>
+            <button id="ministorumPriest" onclick="characterGenerator.generatePriest()" >Ministorum Priest</button>
+            <button id="ogryn" onclick="characterGenerator.generateOrgyn()" >Ogryn</button>
+            <button id="ratling" onclick="characterGenerator.generateRatling()" >Ratling</button>
+            <button id="Psyker" onclick="characterGenerator.generatePsyker()" >Sanctioned Psyker</button>
+            <button id="stormTrooper" onclick="characterGenerator.generateStormTrooper()" >Storm Trooper</button>
+            <button id="techpriest" onclick="characterGenerator.generateTechPriest()" >Tech Priest</button>
+        </div>
+    <div id="characterSheet">
+        <div id="classDisplay">Class:<div id="className"></div></div>
+       <div class="topSheet"> 
+        HP:<div id="HP" class="charsheet"></div><div id="regHP" class="regAddition"></div>
+        Half Move:<div id="halfMove" class="moveDisp"></div>
+        Full Move:<div id="fullMove" class="moveDisp"></div>
+        Charge:<div id="charge" class="moveDisp"></div> 
+        Run:<div id="run" class="moveDisp"></div>
+    </div>
+    <div class="regimentStats">
+        <div class="regimentBox">
+    Home World:<div id="HomeWorldDisp" class="regementDisp regAddition"></div>
+    Officer:<div id="officerDisplay" class="regementDisp regAddition"></div>
+        </div>
+        <div class="regimentBox">
+    Training Doctrine:<div id="trainingDoc" class="regementDisp regAddition"></div>
+</div>
+<div class="regimentBox">
+    Regiment Type:<div id="regimentTypeDisp" class="regementDisp regAddition"></div>
+</div>
+<div class="regimentBox">
+    Special Equiptment:<div id="specialEquiptmentDisp" class="regementDisp regAddition"></div>
+</div><div class="regimentBox">
+    Favored Weapon 1:<div id="favoredWeapons1Disp" class="regementDisp regAddition"></div>
+</div><div class="regimentBox">
+    Favored Weapon 2:<div id="favoredWeapons2Disp" class="regementDisp regAddition"></div>
+</div><div class="regimentBox">
+    Regiment Bonus:<div id="regimentBonus" class="regementDisp regAddition"></div>
+</div>
+<div class="regimentBox">
+    HomeWorld Bonus:<div id="homeWorldBonus" class="regementDisp regAddition"></div>
+</div>
+    </div>
+    <div class="skills">
+        <div class="skill">
+            Weapon Skill: <div id="weaponSkill" class="skillsheet"></div>
+            <div id="regWS" class="regAddition"></div>
+            <div id="trainingWS" class="regAddition"></div>
+        </div>
+        <div class="skill">
+            Balistic Skill:<div id="balisticSkill" class="skillsheet"></div>
+            <div id="regBS" class="regAddition"></div>
+        </div>
+        <div class="skill">
+            Strength:<div id="strength" class="skillsheet"></div>
+            <div id="regStr" class="regAddition"></div>
+        </div>
+        <div class="skill">
+            Toughness:<div id="toughnes" class="skillsheet"></div>
+            <div id="regTough" class="regAddition"></div>
+        </div>
+        <div class="skill">
+            Agility:<div id="agility" class="skillsheet"></div>
+            <div id="regAGY" class="regAddition"></div>
+        </div>
+        <div class="skill">
+            Intelligence?:<div id="intelligence" class="skillsheet"></div>
+            <div id="regINT" class="regAddition"></div>
+        </div>
+        <div class="skill">
+            Perception:<div id="perception" class="skillsheet"></div>
+            <div id="regPER" class="regAddition"></div>
+        </div>
+        <div class="skill">
+            Willpower:<div id="willpower" class="skillsheet"></div>
+            <div id="regWILL" class="regAddition"></div>
+        </div>
+        <div class="skill">
+            Fellowship:<div id="fellowship" class="skillsheet"></div>
+            <div id="regFEL" class="regAddition"></div>
+        </div>
+     </div>   
+     <div class="startingTraits">
+        <div class="startingStuffs">
+            Aptitudes:<div id="aptitudes" class="charsheet"></div>
+            <div id="regAptitudes" class="regAddition"></div>
+            <div id="trainingAptitudes" class="regAddition"></div>
+        </div>
+        <div class="startingStuffs">
+            Starting Skills:<div id="startingSkills" class="charsheet"></div>
+            <div id="regSkills" class="regAddition"></div>
+            <div id="officerSkills" class="regAddition"></div>
+            <div id="trainingSkills" class="regAddition"></div>
+            <div id="specialSkills" class="regAddition"></div>
+        </div>
+        <div class="startingStuffs">
+            Starting Talents:<div id="startingTalents" class="charsheet"></div>
+            <div id="regTalents" class="regAddition"></div>
+            <div id="officerTalents" class="regAddition"></div>
+            <div id="trainingTalents" class="regAddition"></div>
+        </div>
+        <div class="startingStuffs">
+            Starting Traits:<div id="startingTraits" class="charsheet"></div>
+            <div id="regTraits" class="regAddition"></div>
+            
+            
+        </div>
+        <div class="startingStuffs">
+            Specialist Equiptment:<div id="specialistEquip" class="charsheet"></div>
+            <div id="regEquip" class="regAddition"></div>
+            <div id="trainingEquip" class="regAddition"></div>
+            <div id="specialEquip" class="regAddition"></div>
+        </div>
+        <div class="StartingStuffs" id="standardEquip">
+            
+            Standard Equiptment:
+            <ul>
+                <div id="regimentstandardEquiptment"><li>1 Uniform</li>
+                <li>1 set of bad weather gear</li>
+                <li>1 Laspistol and 2 charge Packs</li>
+                <li>1 Knife</li>
+                <li>1 Flak Vest</li>
+                <li>1 Rucksack or Sling Bag</li>
+                <li>1 set of basic tools</li>
+                <li>1 Mess Kit and one water canteen</li>
+                <li>1 blanket and 1 sleep bag</li>
+                <li>1 Rechargable Lamp Pack</li>
+                <li>1 Grooming Kit</li>
+                <li>1 set of identification tags</li>
+                <li>1 Primer (very reliable instructions on enimes)</li>
+                <li>Combat Sustanence Rations, two weeks supply</li></div>
+                <li>Additional Gear Granted By Regiment Type:<div class="regAddition" id="regBonusEquip"></div></li>
+            </ul>
+        </div>
+     </div>   
+    </div>
+    
+
+    <!--<script src="js.js"></script>-->
+    <script src="charGen.js"></script>
+</body>
+

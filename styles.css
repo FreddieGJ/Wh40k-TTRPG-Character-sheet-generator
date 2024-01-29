@@ -1,0 +1,125 @@
+/* Reset some default styles */
+body, h1, button {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #3366cc; /* Blue color */
+}
+.regAddition{
+    color:red;
+}
+
+/* Buttons styling */
+button {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #3366cc; /* Blue color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #004080; /* Darker blue color on hover */
+}
+
+/* Character buttons container */
+#charButtons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Character sheet container */
+#characterSheet {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Top sheet styles */
+.topSheet {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.charsheet, .skillsheet {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: #f9f9f9;
+}
+
+.regementDisp {
+    margin-top: 5px;
+}
+
+/* Regiment stats styles */
+.regimentStats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.regimentBox {
+    width: 48%;
+    margin-top: 10px;
+}
+
+/* Skills container */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Individual skill styles */
+.skill {
+    width: 48%;
+    margin-top: 10px;
+}
+
+/* Starting traits container */
+.startingTraits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Starting stuffs container */
+.startingStuffs {
+    width: 48%;
+    margin-top: 10px;
+}
+
+/* Standard equipment styles */
+#standardEquip {
+    margin-top: 20px;
+}
+
+/* Standard equipment list styles */
+#standardEquip ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#standardEquip ul li {
+    margin-bottom: 5px;
+}
+
+/* Add more styles as needed */
