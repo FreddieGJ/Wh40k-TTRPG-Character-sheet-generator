@@ -497,6 +497,8 @@ class RegimentGenerator{
         regimentBonus.innerHTML = "Fluency: Tallarn Desert Raiders don't start with the Fluency(Low Gothic) Skill. They can still communicate Verbally with no skill test";
         regimentBonus.innerHTML += "Guerrilla Warfare: After sucessfully attacking and hitting an emeny who is Surprised, "
         regimentstandardEquiptment.innerHTML = "<li>1 M36 lasgun and 6 Chargepacks</li><li>1 Mono Knife</li><li>Flak Vest and Flak Helmet</li><li>1 Respirator</li><li>4 Empty Sandbags</li><li>1 Entrenching Tool(Shovel)</li><li>2 Frag Grenades, 3 Smoke Grenades</li><li>1 Uniform</li><li>1 set of bad weather gear</li><li>1 Rucksack</li><li>1 set of basic tools</li><li>1 Mess Kit and one water canteen</li><li>1 blanket and 1 sleep bag</li><li>1 Rechargable Lamp Pack</li><li>1 Grooming Kit</li><li>1 set of identification tags</li><li>1 Primer (very reliable instructions on enimes)</li><li>Combat Sustanence Rations, two weeks supply</li><li>Magnoculors</li><li>Micro Bead</li>";
+        favoredWeapons1Disp.innerHTML = "Missile Launcher";
+        favoredWeapons2Disp.innerHTML = "Plasma Gun"
     }
     generateVostroyanRegiment() {
         HomeWorldDisp.innerHTML = "Vostroya";
@@ -510,6 +512,8 @@ class RegimentGenerator{
         regTalents.innerHTML = "Deadeye Shot, Hatret(Mutants), Rapid Reaction, Rapid Reload, Street Fighting";
         regimentBonus.innerHTML = "Blessed Ignorance: -5 Penalty on all Forbidden Lore tests";
         regimentstandardEquiptment.innerHTML = "<li>1 Good Craftmanship M36 Lasgun and 4 Charge Packs</li><li>1 Sword</li><li>Flak Armor</li><li>Good Craftmanship Carapace Breastplate</li><li>2 Frag Grenades and 2 Krak Grenades</li><li>1 Uniform</li><li>1 set of bad weather gear</li><li>1 Rucksack</li><li>1 set of basic tools</li><li>1 Mess Kit and one water canteen</li><li>1 blanket and 1 sleep bag</li><li>1 Rechargable Lamp Pack</li><li>1 Grooming Kit</li><li>1 set of identification tags</li><li>1 Primer (very reliable instructions on enimes)</li><li>Combat Sustanence Rations, two weeks supply</li><li>Respirator</li><li>Micro Bead</li><li>Survival Suit</li>"
+        favoredWeapons1Disp.innerHTML = "Longlas";
+        favoredWeapons2Disp.innerHTML = "Heavy Bolter";
     }
     //<li>1 Uniform</li><li>1 set of bad weather gear</li><li>1 Rucksack</li><li>1 set of basic tools</li><li>1 Mess Kit and one water canteen</li><li>1 blanket and 1 sleep bag</li><li>1 Rechargable Lamp Pack</li><li>1 Grooming Kit</li><li>1 set of identification tags</li><li>1 Primer (very reliable instructions on enimes)</li><li>Combat Sustanence Rations, two weeks supply</li>
 }
