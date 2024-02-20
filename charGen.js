@@ -6,6 +6,7 @@ var regimentType = document.getElementById("regimentTypeDisp");
 var specialEquptmentDisp = document.getElementById("specialEquiptmentDisp");
 var className = document.getElementById("className");
 var HomeWorldDisp = document.getElementById("HomeWorldDisp");
+var pointsDisp = document.getElementById("pointsDisp");
 
 var regSkills = document.getElementById("regSkills");
 var officerSkills = document.getElementById("officerSkills");
@@ -33,7 +34,7 @@ var regWILL = document.getElementById("regWILL");
 var regFEL = document.getElementById("regFEL");
 var regHP = document.getElementById("regHP");
 var regBonusEquip = document.getElementById("regBonusEquip");
-var allRegSkillDisps = document.getElementsByClassName("regAddition").innerHTML;
+var allRegSkillDisps = document.getElementsByClassName("regAddition");
 var regimentBonus = document.getElementById("regimentBonus");
 var homeWorldBonus = document.getElementById("homeWorldBonus");
 var regimentstandardEquiptment = document.getElementById("regimentstandardEquiptment");
@@ -66,7 +67,7 @@ var stats = [ weaponDisp, balisticDisp, strengthDisp, toughnesDisp, agilityDisp,
 var officerTypeList = ['Bilious 2', 'Circumspect 2', 'Cholerick 2', 'Fixed 1', 'Maverick 2', 'Melanchoic 2', 'Phelgmatic 1', 'Sanguine 2', 'Supine 1'];
 var trainingDocs = ['Close Order Drill 2', 'Die hards 3', 'Favored Foe 3', 'hardened Fighters 2', 'Iron Dicipline 2', 'Sharp Shooters 4', 'Survivalists 4'];
 var regimentTypes = ['Armored Regiment 4', "Recon Type 3", "Drop Troops 3", "Hunter Killer 3", "Light Infantry 2", "Line Infantry 2", "Mechanised Infantry 3", "Seige Infantry 2"];
-var specialEquipDocs = ["Augmetics 2", "Chameleoline 3", "Combat Drugs 2", "Demolitions3", "Scavengers 3", "Warrior Weapons 3", "Well-Provisioned 3"];
+var specialEquipDocs = ["Augmetics 2", "Chameleoline 3", "Combat Drugs 2", "Demolitions 3", "Scavengers 3", "Warrior Weapons 3", "Well-Provisioned 3"];
 var favoredWeapons = [
     "Heavy Bolter",
     "Heavy Stubber",
@@ -147,7 +148,7 @@ var favoredWeapons = [
     "Sword",
     "Truncheon",
     "Warknife"];
-var HomeWorlds = ["Death World", "Fortress World", "Highborn", "Hive World", "Imperial World", "Penal Colony", "Pentent", "Schola Progenium"];
+var HomeWorlds = ["Death World", "Fortress World", "Highborn", "Hive World", "Imperial World", "Penal Colony", "Penitent", "Schola Progenium"];
 
 //Simulate a D10 Dice roll
 const roll10 = () => {
@@ -162,11 +163,291 @@ const roll5 = () => {
     return Math.floor(Math.random() * 4) +1
 }
 
+    //pre-selected regiment choices
+    document.getElementById("regimentChoice").addEventListener("change", function() {
+        var selectedValue = this.value;
+
+        switch(selectedValue){
+            case "1":
+                regimentGenerator.generateCadiaRegiment()
+            break;
+            case "2":
+                regimentGenerator.generateCatachanRegiment()
+            break;
+            case "3":
+                regimentGenerator.generateKriegRegiment()
+            break;
+            case "4":
+                regimentGenerator.generateElysianRegiment()
+            break;
+            case "5":
+                regimentGenerator.generateJanissariesRegiment()
+            break;
+            case "6":
+                regimentGenerator.generateMordianRegiment()
+            break;
+            case "7":
+                regimentGenerator.generateTallarnRegiment()
+            break
+            case "8":
+                regimentGenerator.generateVostroyanRegiment()
+        }
+    });
+    
+    document.getElementById("homeWorldSelect").addEventListener("change", function() {
+        var selectedValue = this.value;
+
+        homeWorldBonus.innerHTML = "";
+
+        switch(selectedValue){
+            case "1":
+                homeWorldBonus.innerHTML += "Charactaristics: Choose 2 to add +3: Perception, Strength, Toughness";
+                homeWorldBonus.innerHTML += "<p>Skills: Survival</p>";
+                homeWorldBonus.innerHTML += "<p>Fluency: You can speak Low Gothic, but you cannot read or write</p>";
+                homeWorldBonus.innerHTML += "<p>Hardened: Choose Between Lightning Reflexes, Light Sleeper or Resistance(poison)</p>";
+                homeWorldBonus.innerHTML += "<p>Wary of Outsiders: You take a -10 penalty on all interactions made within a formal surrounding and a -10 penalty on all interactions with non-Death Worlders. These penalties can be waved if dealing with those who have gained their trust</p>";
+                homeWorldBonus.innerHTML += "<p>HP +2</p>";
+            break;
+            case "2":
+                homeWorldBonus.innerHTML += "Charactaristics: Choose 2 to add +3: Balistic Skill, Willpower, Toughness";
+                homeWorldBonus.innerHTML += "<p>Skills: Common Lore(War, Imperium, Imperial Guard), Linguistics(Low Gothic)</p>";
+                homeWorldBonus.innerHTML += "<p>Hated Enemy: Hatred(any) At the GMs discression, you must make a Willpower(10) check to avoid attacking that Enemy without mercy on sight</p>";
+                homeWorldBonus.innerHTML += "<p>Combat doctrine: Choose Between Nerves Of Steel or Sprint</p>";
+                homeWorldBonus.innerHTML += "<p>Bred For War: You must pass a Willpower(+0) test to go against the ruls and regulations of the Imperial Guard</p>";
+            break;
+            case "3":
+                homeWorldBonus.innerHTML += "Charactaristics: Choose 2 to add +3: Fellowship, Intelligence, Weapon Skill";
+                homeWorldBonus.innerHTML += "<p>Skills: Common Lore(Administratum), Inquiry, Linguistics(High Gothic)</p>";
+                homeWorldBonus.innerHTML += "<p>Fluency: You can speak Low Gothic, but you cannot read or write it</p>";
+                homeWorldBonus.innerHTML += "<p>Duty And Honor: You take a penalty of -10 on all Charm, Inquiry and Deceive Tests on non Nobles. However, you gain a +10 to those same tests on Nobles</p>";
+                homeWorldBonus.innerHTML += "<p>Abundant Resources: A squad from a Highborn World gains a +10 to their Logistics rating</p>";
+                homeWorldBonus.innerHTML += "<p>The Finest Tutors: Choose Between the following Talents: Air Of Authority OR Peer(Nobels)</p>";
+                homeWorldBonus.innerHTML += "<p>HP -1</p>";
+            break;
+            case "4":
+                homeWorldBonus.innerHTML += "Charactaristics: Choose 2 to add +3: Agility, Fellowship, Perception";
+                homeWorldBonus.innerHTML += "<p>Skills: Deceive, Linguistics(Low Gothic)</p>";
+                homeWorldBonus.innerHTML += "<p>Accustomed To Crowds: When running or charging through dense crowds, you take no penalty for Agility tests to keep your feet</p>";
+                homeWorldBonus.innerHTML += "<p>Hivebound: When outside of an enclosed or artificial environment (E.G Hive city or Starship), you tke a -10 to all survival tests</p>";
+                homeWorldBonus.innerHTML += "<p>Urban Violence: Choose 1: Hightened Senses(Hearing), Paranoia, Unremarkable</p>";
+                homeWorldBonus.innerHTML += "<p>HP -1</p>";
+            break;
+            case "5":
+                homeWorldBonus.innerHTML += "Charactaristics: +3 to Willpower and +3 to any other Charactaristic";
+                homeWorldBonus.innerHTML += "<p>Skills: Common Lore(Imperial Creed, Imperium), Linguistics(Low Gothic)</p>";
+                homeWorldBonus.innerHTML += "<p>Blessed Ignorance: -5 Penalty on all Forbidden Lore tests</p>";
+                homeWorldBonus.innerHTML += "<p>Kill The Mutant: Hatred(Mutant)</p>";
+            break;
+            case "6":
+                homeWorldBonus.innerHTML += "Charactaristics: Choose 2 to add +3: Agility, Strength, Toughness";
+                homeWorldBonus.innerHTML += "<p>Skills: Intimidate, Linguistics(Low Gothic)</p>";
+                homeWorldBonus.innerHTML += "<p>Honor Among Thieves: Choose 1 of the following Talents: Peer(Underworld) or Street Fighting</p>";
+                homeWorldBonus.innerHTML += "<p>Larcenous: You gain a +10 to all Logistics tests made to obtain illigal or contraband items</p>";
+                homeWorldBonus.innerHTML += "<p>Scum and Villiny: You have only 15 points to determine starting Equiptment</p>";
+                homeWorldBonus.innerHTML += "<p>HP +1</p>";
+            break;
+            case "7":
+                homeWorldBonus.innerHTML += "Charactaristics: Choose 2 to add +3: Fellowship, Toughness, Willpower";
+                homeWorldBonus.innerHTML += "<p>Skills: Common Lore(Ecclesiarchy, Imperial Creed), Intimidate, Linguistics(Low Gothic)</p>";
+                homeWorldBonus.innerHTML += "<p>Blood Of Martyrs: Choose 1 of the following Talents: Nerves Of Steel, Orthoproxy, Unshakable Faith</p>";
+                homeWorldBonus.innerHTML += "<p>Only One Life To Give: You must take a Willpower(+10) Test in order to retreat from battle or otherwise act in the interest of self preservation</p>";
+                homeWorldBonus.innerHTML += "<p>Untempered Zeal: You can re-roll any failed test made to insire religious fervor or righteous hatred in others</p>";
+                homeWorldBonus.innerHTML += "<p>HP +2</p>";
+            break;
+            case "8":
+                homeWorldBonus.innerHTML += "Charactaristics: +3 to Willpower and +3 to either Weapon Skill or Balistics Skill";
+                homeWorldBonus.innerHTML += "<p>Skills: Common Lore(Imperial Guard, Imperium, War), Linguistics(High Gothic and Low Gothic)</p>";
+                homeWorldBonus.innerHTML += "<p>Only In Death Does Duty End: Choose between the following Talents: Air Of Authority or Unshakable Faith</p>";
+                homeWorldBonus.innerHTML = "<p>HP +1</p>;"
+            };
+    });
+
+    document.getElementById("officerSelect").addEventListener("change", function() {
+        var selectedValue = this.value;
+
+        officerTalents.innerHTML = "";
+        officerSkills.innerHTML = "";
+
+        switch(selectedValue){
+            case "1":
+                officerTalents.innerHTML += "Paranoia";
+            break;
+            case "2":
+                officerTalents.innerHTML += "Foresight";
+            break;
+            case "3":
+                officerTalents.innerHTML += "Rapid Reaction";
+            break;
+            case "4":
+                officerSkills.innerHTML += "Command";
+            break;
+            case "5":
+                officerTalents.innerHTML += "Resistance(Fear)";
+            break;
+            case "6":
+                officerTalents.innerHTML += "Air Of Authority";
+            break;
+            case "7":
+                officerSkills.innerHTML += "Common Lore(Imperial Guard, War)";
+            break;
+            case "8":
+                officerTalents.innerHTML += "Die Hard";
+            break;
+            case "9":
+                officerSkills.innerHTML += "Common Lore(Ecclesiarchy, Imperial Creed)";
+        }
+    });
+
+    document.getElementById("trainingDoctrineSelect").addEventListener("change", function() {
+        var selectedValue = this.value;
+
+        trainingTalents.innerHTML = "";
+        trainingAptitudes.innerHTML = "";
+        trainingEquip.innerHTML = "";
+        trainingSkills.innerHTML = "";
+        trainingWS.innerHTML = "";
+
+        switch(selectedValue) {
+            case "1":
+                trainingTalents.innerHTML += "Combat Formation OR Double Team";
+            break;
+            case "2":
+                trainingAptitudes.innerHTML += "Toughness";
+            break;
+            case "3":
+                trainingTalents.innerHTML += "Hatred(Choose 1)";
+                trainingSkills.innerHTML += "Forbidden lore(Choose 1)";
+            break;
+            case "4":
+                trainingWS.innerHTML += "Weapon Skill +2";
+                trainingTalents.innerHTML += "Street Fighting";
+                trainingEquip.innerHTML += "Replace standard Melee Weapon with Common or Low-tech melee Weapon OR apply the Mono Upgrade to standard melee weapon";
+            break;
+            case "5":
+                trainingAptitudes.innerHTML += "Willpower";
+            break;
+            case "6":
+                trainingAptitudes.innerHTML += "Balistic Skill";
+                trainingTalents.innerHTML += "Deadeye Shot";
+            break;
+            case "7":
+                trainingAptitudes.innerHTML += "Agility";
+                trainingSkills.innerHTML += "Re-Roll failed Survival and Navigate(Surface) Tests";
+            break;
+        }
+
+    });
+
+    document.getElementById("regimentTypeSelect").addEventListener("change", function() {
+        var selectedValue = this.value;
+
+        regWS.innerHTML = "";
+        regBS.innerHTML = "";
+        regStr.innerHTML = "";
+        regTough.innerHTML = "";
+        regAGY.innerHTML = "";
+        regINT.innerHTML = "";
+        regPER.innerHTML = "";
+        regWILL.innerHTML = "";
+        regFEL.innerHTML = "";
+        regBonusEquip.innerHTML = "";
+        regSkills.innerHTML = "";
+        regTalents.innerHTML = "";
+
+        switch(selectedValue){
+            case "1":
+                regWS.innerHTML += "-3"; regINT.innerHTML += "+3";
+                regSkills.innerHTML += "Operate(Surface)";
+                regTalents.innerHTML += "Technical Knock";
+                regBonusEquip.innerHTML += "One Leman Russ Battle Tank (or varient), One Annointed Maintenance Toolkit (Per player)"
+            break;
+            case "2":
+                regPER.innerHTML += "+3"; regWILL.innerHTML += "-3";
+                regSkills.innerHTML += "Awareness";
+                regTalents.innerHTML += "Combat Sense";
+                regBonusEquip.innerHTML += "One Sentinel Scout Walker OR One ChimeraArmored Transport per Squad, One set of Magnoculars";
+            break;
+            case "3":
+                regAGY.innerHTML += "+3"; regFEL.innerHTML = "-3";
+                regSkills.innerHTML += "Operate(Aronautica)";
+                regTalents.innerHTML += "Catfall";
+                regBonusEquip.innerHTML += "One lascarbine and 4 Charge Packs per player (Main Weapon), One suit of Imperial Guard Flak Armor per Character, One Respirator Per Character, One Grav-Chute per Player, Two Frak and Krak Grenades";
+            break;
+            case "4":
+                regBS.innerHTML += "+3"; regStr.innerHTML = "-3";
+                regSkills.innerHTML += "Operate(Surface)";
+                regTalents.innerHTML += "Resistance(Fear)";
+                regBonusEquip.innerHTML += "One Sentinel Scout Walker OR One HellHound Support Tank per Squad";
+            break;
+            case "5":
+                regAGY.innerHTML += "+3";
+                regTough.innerHTML += "-3";
+                regSkills.innerHTML += "Navigate(Surface)";
+                regTalents.innerHTML += "Sprint";
+                regBonusEquip.innerHTML += "One Lascarbine and 4 Charge Pack per player (Main Weapon), One Flak Vest and One Flak Helmet Per Player, Two Frag Grenades and Two Smoke Grenades Per Player";
+            break;
+            case "6":
+                regStr.innerHTML += "+3"; regINT.innerHTML = "-3";
+                regSkills.innerHTML += "Athetics";
+                regTalents.innerHTML += "Rapid Reload";
+                regBonusEquip.innerHTML += "One M36 Lasgun and 4 charge packs per Player(Main Weapon), One suit of Imperial Guard Flak Armor Per Player, Two Frak and Krak Grenades Per Player";
+            break;
+            case "7":
+                regAGY.innerHTML += "+3"; regPER.innerHTML = "-3";
+                regSkills.innerHTML += "Operate(Surface)";
+                regTalents.innerHTML += "Rapid Reload";
+                regBonusEquip.innerHTML += "One M36 Lasgun and 4 charge packs per Player(Main Weapon), One suit of Imperial Guard Flak Armor Per Player, Two Frak and Krak Grenades Per Player, One Chimera Armored Transport Per Squad";
+            break;
+            case "8":
+                regTough.innerHTML += "+3"; regINT.innerHTML = "-3";
+                regSkills.innerHTML += "Tech Use";
+                regTalents.innerHTML += "Nerves Of Steel";
+                regBonusEquip.innerHTML += "One M36 Lasgun with 4 charge Packs per Player (Main Weapon), One Suit of Imperial Guard Flak Armour Per Player, One respierator Per Player, 4 Empty Sandbags and One Entrenching Tool Per Player, Two Frag Grenades and two Photon Grenades Per Player";
+            break;
+        }
+    });
+
+    document.getElementById("specialEquiptmentSelect").addEventListener("change", function() {
+        var selectedValue = this.value;
+
+        specialEquip.innerHTML = "";
+        specialSkills.innerHTML = "";
+
+        switch(selectedValue){
+            case "1":
+                specialEquip.innerHTML += "+10 on all Logistics tests to gain bionic replacements and implants";
+            break;
+            case "2":
+                specialEquip.innerHTML += "Regiment is equipped with Chameleoline cloaks OR Chameleoline armor";
+            break;
+            case "3":
+                specialEquip.innerHTML += "Regiment is equipped with an Injector OR and Inhaler, 3 doses of Frenzon OR 5 doses of Stimm. Additional doses must be obtained normally."
+            break;
+            case "4":
+                specialEquip.innerHTML += "+10 on all Logistics tests to obtain Grenades, Missiles, Explosives, special Tank Ammo";
+            break;
+            case "5":
+                specialEquip.innerHTML += "Regiment may add +10 to any Logistics Test. However, when this ability is used, any double rolled (e.g 22) garners unwanted attention from higher ups";
+            break;
+            case "6":
+                specialSkills.innerHTML += "Parry";
+                specialEquip.innerHTML += "Regiment exchanges their Main Weapon for a (Common or more available) low-Tech Weapon and a Las Pistol with 2 Charge Packs";
+            break;
+            case "7":
+                specialEquip.innerHTML += "Increase all ammo clips and ration supplies by +2 and gain an additional grenade of each type. If the Regiment contains Vehacles, add +10 on Logistics tests made to obtain fuel parts for repairs";
+            break;
+        }
+    });
+
+    pointsDisp.innerHTML = points;
+
+
 //the class that makes the regiments
 class RegimentGenerator{
     constructor(stats){
         this.stats = stats;
     }
+
     //autofill all the regiment boxes
     generateRegiment(){
         //reset the display
@@ -232,6 +513,7 @@ class RegimentGenerator{
             homeWorldBonus.innerHTML += "<p>Hivebound: When outside of an enclosed or artificial environment (E.G Hive city or Starship), you tke a -10 to all survival tests</p>";
             homeWorldBonus.innerHTML += "<p>Urban Violence: Choose 1: Hightened Senses(Hearing), Paranoia, Unremarkable</p>";
             homeWorldBonus.innerHTML += "<p>HP -1</p>"
+
         }else if (choice === HomeWorlds[4]){
             homeWorldBonus.innerHTML += "Charactaristics: +3 to Willpower and +3 to any other Charactaristic";
             homeWorldBonus.innerHTML += "<p>Skills: Common Lore(Imperial Creed, Imperium), Linguistics(Low Gothic)</p>";
@@ -259,7 +541,6 @@ class RegimentGenerator{
         }
         
     }
-
     createCommandingOfficer(){
         //randomly choose a Officer
         var choice = officerTypeList[Math.floor(Math.random() * officerTypeList.length)];
@@ -286,7 +567,6 @@ class RegimentGenerator{
             officerSkills.innerHTML += "Common Lore(Ecclesiarchy, Imperial Creed)";
         }
     }
-
     selectTrainingDocs() {
         //randomly choose a traningDoc
         var choice = trainingDocs[Math.floor(Math.random() * trainingDocs.length)]
@@ -316,7 +596,6 @@ class RegimentGenerator{
     }
 
     //the rest of the selectors basically go by the previous formula
-
     generateSpecialEquiptment() {
         var choice = specialEquipDocs[Math.floor(Math.random() * specialEquipDocs.length)];
         specialEquptmentDisp.innerHTML = choice;
@@ -324,7 +603,7 @@ class RegimentGenerator{
         if (choice === specialEquipDocs[0]){
             specialEquip.innerHTML += "+10 on all Logistics tests to gain bionic replacements and implants";
         }else if (choice === specialEquipDocs[1]){
-            specialEquip.innerHTML += "Rgiment is equipped with Chameleoline cloaks OR Chameleoline armor";
+            specialEquip.innerHTML += "Regiment is equipped with Chameleoline cloaks OR Chameleoline armor";
         }else if (choice === specialEquipDocs[2]){
             specialEquip.innerHTML += "Regiment is equipped with an Injector OR and Inhaler, 3 doses of Frenzon OR 5 doses of Stimm. Additional doses must be obtained normally."
         }else if (choice === specialEquipDocs[3]){
@@ -337,8 +616,7 @@ class RegimentGenerator{
         }else if (choice === specialEquipDocs[6]){
             specialEquip.innerHTML += "Increase all ammo clips and ration supplies by +2 and gain an additional grenade of each type. If the Regiment contains Vehacles, add +10 on Logistics tests made to obtain fuel parts for repairs";
         }
-        };
-
+    };
     selectRegimentType() {
         var choice = regimentTypes[Math.floor(Math.random() * regimentTypes.length)];
         regimentTypeDisp.innerHTML = choice;
@@ -386,13 +664,12 @@ class RegimentGenerator{
             regBonusEquip.innerHTML += "One M36 Lasgun with 4 charge Packs per Player (Main Weapon), One Suit of Imperial Guard Flak Armour Per Player, One respierator Per Player, 4 Empty Sandbags and One Entrenching Tool Per Player, Two Frag Grenades and two Photon Grenades Per Player";
         }
     };
-
     generateFavoredWeapons() {
             const choice1 = favoredWeapons[Math.floor(Math.random() * favoredWeapons.length)];
             const choice2 = favoredWeapons[Math.floor(Math.random() * favoredWeapons.length)];
             favoredWeapons1Disp.innerHTML = choice1;
             favoredWeapons2Disp.innerHTML = choice2;
-        }
+    }
 
     generateCadiaRegiment() {
         HomeWorldDisp.innerHTML = "Cadia";
@@ -400,6 +677,7 @@ class RegimentGenerator{
         regBS.innerHTML = "+3";
         regPER.innerHTML = "-3";
         regWILL.innerHTML = "+3";
+        regHP.innerHTML = "";
         regAptitudes.innerHTML = "Willpower";
         regSkills.innerHTML = "Command, Common Lore(Imperial Guard, Imperium, War), Linguistics(Low Gothic), Operate(Surface)";
         regTalents.innerHTML = "Combat Formation OR Double Team, Hatred(Chaos), Nerves Of Steel, OR Sprint, Rapid Reload";
@@ -409,7 +687,6 @@ class RegimentGenerator{
         favoredWeapons1Disp.innerHTML = "Auto Cannon";
         favoredWeapons2Disp.innerHTML = "Grenade Launcher";
     }
-
     generateCatachanRegiment() {
         HomeWorldDisp.innerHTML = "Catachan";
         regStr.innerHTML = "+3";
@@ -421,7 +698,7 @@ class RegimentGenerator{
         regimentBonus.innerHTML += "<p>Survivalists(Jungle): Catachans can reroll failed Survival(Jungle) Tests and Navigate(Surface) tests when within a Jungle</p>";
         regimentBonus.innerHTML += "<p>Wary of Outsiders: Catachans take a -10 penalty on all interactions made within a formal surrounding and a -10 penalty on all interactions with non-Catachans. These penalties can be waved if dealing with those who have gained their trust</p>";
         regHP.innerHTML = "+2"
-        regimentstandardEquiptment.innerHTML = "<li>1 Lascarbine and 4 charge Packs</li><li>1 Best Craftmanship Sword</li><li>1 Knife</li><li>Flak Vest and FLak Helmet</li><li>3 Frag Grenades And 2 Smoke Grenades</li><li>1 Uniform</li><li>1 set of bad weather gear</li><li>1 Knife</li><li>1 Flak Vest</li><li>1 Rucksack</li><li>1 set of basic tools</li><li>1 Mess Kit and one water canteen</li><li>1 blanket and 1 sleep bag</li><li>1 Rechargable Lamp Pack</li><li>1 Grooming Kit</li><li>1 set of identification tags</li><li>1 Primer (very reliable instructions on enimes)</li><li>Combat Sustanence Rations, two weeks supply</li><li>Grapnel</li>"
+        regimentstandardEquiptment.innerHTML = "<li>1 Lascarbine and 4 charge Packs</li><li>1 Best Craftmanship Sword</li><li>1 Knife</li><li>Flak Vest and Flak Helmet</li><li>3 Frag Grenades And 2 Smoke Grenades</li><li>1 Uniform</li><li>1 Set of bad weather gear</li><li>1 Knife</li><li>1 Rucksack</li><li>1 Set of basic tools</li><li>1 Mess Kit and one water canteen</li><li>1 Blanket and 1 sleep bag</li><li>1 Rechargable Lamp Pack</li><li>1 Grooming Kit</li><li>1 Set of identification tags</li><li>1 Primer (very reliable instructions on enimes)</li><li>Combat Sustanence Rations, two weeks supply</li><li>Grapnel</li>"
         favoredWeapons1Disp.innerHTML = "Flamer";
         favoredWeapons2Disp.innerHTML = "Heavy Bolter"
     }
@@ -451,7 +728,7 @@ class RegimentGenerator{
         regTalents.innerHTML = "Catfall, Die Hard, Hatred(Mutants)";
         regimentBonus.innerHTML = "Blessed Ignorance: -5 Penalty on all Forbidden Lore tests";
         regimentBonus.innerHTML += "<p>Demolitions Doctrine: +10 bonus on all Logistics tests made to obtain Grenades, Explosives, Missiles and special tank ammuntion</p>";
-        regHP.innerHTML = ""
+        regHP.innerHTML = "";
         regimentstandardEquiptment.innerHTML = "<li>1 Combat Shotgun and 4 Clips</li><li>1 Knife</li><li>Flak Armor</li><li>1 Respirator</li><li>1 Grav Chute</li><li>1 Uniform</li><li>1 set of bad weather gear</li><li>1 Rucksack</li><li>1 set of basic tools</li><li>1 Mess Kit and one water canteen</li><li>1 blanket and 1 sleep bag</li><li>1 Rechargable Lamp Pack</li><li>1 Grooming Kit</li><li>1 set of identification tags</li><li>1 Primer (very reliable instructions on enimes)</li><li>Combat Sustanence Rations, two weeks supply</li><li>Micro-bead</li><li>Survival Suit</li><li>Photo Visor(Night vision goggles)</li>"
         favoredWeapons1Disp.innerHTML = "Heavy Bolter"
         favoredWeapons2Disp.innerHTML = "Plasma Gun";
@@ -491,6 +768,7 @@ class RegimentGenerator{
         HomeWorldDisp.innerHTML = "Tallarn"
         regAGY.innerHTML = "+3";
         regPER.innerHTML = "+3";
+        regHP.innerHTML = "";
         regAptitudes.innerHTML = "Ballistic Skill";
         regSkills.innerHTML = "Navigate(Surface), Survival";
         regTalents.innerHTML = "Deadeye Shot, Foresight, Sprint";
@@ -507,6 +785,7 @@ class RegimentGenerator{
         regTough.innerHTML = "+3";
         regWS.innerHTML = "+3";
         regWILL.innerHTML = "+3";
+        regHP.innerHTML = "";
         regAptitudes.innerHTML = "Balistic Skill";
         regSkills.innerHTML = "Athetics, Common Lore(Imperial Creed, Imperium), Linguistics(Low Gothic)";
         regTalents.innerHTML = "Deadeye Shot, Hatret(Mutants), Rapid Reaction, Rapid Reload, Street Fighting";
@@ -515,7 +794,7 @@ class RegimentGenerator{
         favoredWeapons1Disp.innerHTML = "Longlas";
         favoredWeapons2Disp.innerHTML = "Heavy Bolter";
     }
-    //<li>1 Uniform</li><li>1 set of bad weather gear</li><li>1 Rucksack</li><li>1 set of basic tools</li><li>1 Mess Kit and one water canteen</li><li>1 blanket and 1 sleep bag</li><li>1 Rechargable Lamp Pack</li><li>1 Grooming Kit</li><li>1 set of identification tags</li><li>1 Primer (very reliable instructions on enimes)</li><li>Combat Sustanence Rations, two weeks supply</li>
+    
 }
 
 class CharacterGenerator{
@@ -675,7 +954,7 @@ class CharacterGenerator{
         stats[8].innerHTML = parseInt(stats[8].innerHTML) + 5;
         aptitudes.innerHTML = "Agility, Fellowship, Finesse, Leadership, Perception, Weapon Skill, Willpower";
         startingSkills.innerHTML = "Command OR Intimidate, Common Lore(Imperial Guard), Scholalistic Lore(Tactica Imperilis)";
-        startingTalents.innerHTML = "Air of Authority, Cold Hearted OR Unshakable Faith, Weapon Training (Bold, Chain, Las OR Solid Projectile";
+        startingTalents.innerHTML = "Air of Authority, Cold Hearted OR Unshakable Faith, Weapon Training (Bolt, Chain, Las OR Solid Projectile";
         specialistEquip.innerHTML = "Good Craftmanship Chainsword, Good Craftmanship Bolt Pistol, Commisar's Uniform";
         HP.innerHTML = parseInt(10 + roll5());
         className.innerHTML = "Commisar";
@@ -800,6 +1079,7 @@ class CharacterGenerator{
         regTraits.innerHTML = "";
         regBonusEquip.innerHTML = "";
         HP.innerHTML = "";
+        regHP.innerHTML = "";
         specialistEquip.innerHTML = "";
         regEquip.innerHTML = "";
         trainingEquip.innerHTML = "";
@@ -851,4 +1131,6 @@ if (statValue <= 9) {
                 stat.innerHTML += " +9";
             }
 
+            The list of standard eqiptment that every new character starts with
+            //<li>1 Uniform</li><li>1 set of bad weather gear</li><li>1 Rucksack</li><li>1 set of basic tools</li><li>1 Mess Kit and one water canteen</li><li>1 blanket and 1 sleep bag</li><li>1 Rechargable Lamp Pack</li><li>1 Grooming Kit</li><li>1 set of identification tags</li><li>1 Primer (very reliable instructions on enimes)</li><li>Combat Sustanence Rations, two weeks supply</li>
 */
