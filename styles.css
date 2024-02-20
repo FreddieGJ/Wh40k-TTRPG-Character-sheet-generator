@@ -1,142 +1,152 @@
-/* Reset some default styles */
-body, h1, button {
+/* Resetting default margin and padding */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Basic styling */
+/* Body styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
     color: #333;
 }
 
-h1 {
-    text-align: center;
-    margin: 20px 0;
-    color: #3366cc; /* Blue color */
-}
-
-#mainDisplay {
-    /* Add styles for the main display if needed */
-}
-
-/* Buttons styling */
-button {
-    margin: 5px;
-    padding: 10px;
-    cursor: pointer;
-    background-color: #3366cc; /* Blue color */
+/* Banner styles */
+.banner {
+    background-color: #333;
     color: #fff;
-    border: none;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #004080; /* Darker blue color on hover */
-}
-
-/* Character buttons container */
-#charButtons {
+    padding: 20px;
     text-align: center;
-    margin-top: 20px;
 }
 
-/* Character sheet container */
+.banner h1 {
+    font-size: 24px;
+}
+
+/* Container styles */
 #characterSheet {
-    margin-top: 20px;
+    margin: 20px auto;
+    max-width: auto;
     background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Top sheet styles */
-.topSheet {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+/* Class Display styles */
+#classDisplay {
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
-.charsheet, .skillsheet {
-    border: 1px solid #ccc;
+/* Top Sheet styles */
+.topSheet {
+    margin-bottom: 20px;
+}
+.moveContainer{
+    white-space: nowrap;
+}
+
+.charsheet {
+    display: inline-block;
+    width: auto;
+    background-color: #f2f2f2;
     padding: 5px;
-    margin-bottom: 5px;
-    background-color: #f9f9f9;
+    border-radius: 5px;
+    text-align: center;
+    margin-right: 10px;
 }
 
-.regementDisp {
-    margin-top: 5px;
+.regAddition {
+    font-size: 12px;
+    color: red;
 }
 
-.regAddition{
-    color:red;
-}
-
-/* Regiment stats styles */
+/* Regiment Stats styles */
 .regimentStats {
-    display: flex;
-    flex-wrap: wrap;
+    margin-bottom: 20px;
+    display:flex;
     justify-content: space-around;
 }
 
 .regimentBox {
-    width: 100%;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-/* Skills container */
+/* Movement area styles */
+.moveDisp {
+    display: inline-block;
+    width: 120px;
+    margin-right: 10px;
+}
+
+/* Skills styles */
 .skills {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    margin-bottom: 20px;
+    display:flex;
+    margin:0 auto;
+    width:fit-content;
 }
 
-/* Individual skill styles */
 .skill {
-    width: 100%;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-/* Starting traits container */
-.startingTraits {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
+.skillsheet {
+    display: inline-block;
+    width: 100px;
+    background-color: #f2f2f2;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    margin-right: 10px;
 }
 
-/* Starting stuffs container */
+/* Starting Traits styles */
+.characterSheet{
+    text-align:center;
+}
+
 .startingStuffs {
-    width: 100%;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-/* Standard equipment styles */
-#standardEquip {
-    margin-top: 20px;
-}
-
-/* Standard equipment list styles */
-#standardEquip ul {
+#regimentStandardEquiptment{
     list-style-type: none;
-    padding: 0;
 }
 
-#standardEquip ul li {
-    margin-bottom: 5px;
+/* Button styles */
+button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    max-height:40px;
 }
 
-/* Add more styles as needed */
+button:hover {
+    background-color: #555;
+}
+a{
+    cursor:pointer;
+}
+a:hover ul{
+    display:block;
+}
 
-/* Media Query for Mobile Devices */
-@media screen and (max-width: 600px) {
-    .regimentBox, .skill, .startingStuffs {
-        width: 100%;
-    }
+/* Select Regiment styles */
+.selectReg {
+    margin-bottom: 20px;
+}
 
-    .topSheet {
-        flex-direction: column;
-    }
+/* Random Regiment Generator styles */
+.randomRegGen {
+    margin-bottom: 20px;
+}
+.genBtns {
+    text-align:center;
 }
