@@ -163,7 +163,7 @@ const roll5 = () => {
     return Math.floor(Math.random() * 4) +1
 }
 
-points = 12;
+    points = 12;
     pointsDisp.innerHTML = points;
 
     //pre-selected regiment choices
@@ -443,8 +443,6 @@ points = 12;
     });
 
     pointsDisp.innerHTML = points;
-
-
 //the class that makes the regiments
 class RegimentGenerator{
     constructor(stats){
@@ -862,36 +860,6 @@ class CharacterGenerator{
             fullMove.innerHTML = 8
             charge.innerHTML = 12
             run.innerHTML = 24
-        }else if (moveValue <= 50){
-            halfMove.innerHTML = 5
-            fullMove.innerHTML = 10
-            charge.innerHTML = 15
-            run.innerHTML = 30
-        } else if(moveValue <= 60){
-            halfMove.innerHTML = 6
-            fullMove.innerHTML = 12
-            charge.innerHTML = 18
-            run.innerHTML = 36
-        } else if(moveValue <= 70){
-            halfMove.innerHTML = 7
-            fullMove.innerHTML = 14
-            charge.innerHTML = 21
-            run.innerHTML = 2
-        }else if (moveValue <= 80){
-            halfMove.innerHTML = 8
-            fullMove.innerHTML = 16
-            charge.innerHTML = 24
-            run.innerHTML = 48
-        }else if (moveValue <= 90){
-            halfMove.innerHTML = 9
-            fullMove.innerHTML = 18
-            charge.innerHTML = 27
-            run.innerHTML = 54
-        } else if (moveValue === 100){
-            halfMove.innerHTML = 10
-            fullMove.innerHTML = 20
-            charge.innerHTML = 30
-            run.innerHTML = 60
         }
     }
 
