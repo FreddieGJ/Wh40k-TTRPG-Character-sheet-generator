@@ -866,6 +866,7 @@ class CharacterGenerator{
 //generates the Heavy gunner class
     generateHeavyGunner() {
         this.generateStats();
+        regWS.innerHTML = "";
         stats[3].innerHTML = parseInt(stats[3].innerHTML) + 5;
         aptitudes.innerHTML = "Balistic Skill, Defence, Fellowship, Offence, Perception, Toughness";
         startingSkills.innerHTML = "Choose Athetics or survival. Common Lore(Imperial Guard) Intimidate.";
@@ -877,6 +878,7 @@ class CharacterGenerator{
 // generates the Medic class
     generateMedic() {
         this.generateStats();
+        regWS.innerHTML = "";
         stats[5].innerHTML = parseInt(stats[5].innerHTML) + 5;
         aptitudes.innerHTML = "Balistic Skill, Fieldcraft, Intelligence, Knowledge, Perception, Willpower";
         startingSkills.innerHTML = "Medicae, Lore(Chemistry), Scrutiny OR Trade (Medical Supplies)";
@@ -888,6 +890,7 @@ class CharacterGenerator{
 //generates the Operator class
     generateOperator() {
         this.generateStats();
+        regWS.innerHTML = "";
         stats[4].innerHTML = parseInt(stats[4].innerHTML) + 5;
         aptitudes.innerHTML = "Agility, Balistic Skill, Fellowship, Fieldcraft, Intelligence, Tech";
         startingSkills.innerHTML = "Common Lore (Tech) OR Navigate (Surface), Operate (Surface), Tech-Use";
@@ -899,6 +902,7 @@ class CharacterGenerator{
 //generates the Sergeant class
     generateSergeant() {
         this.generateStats();
+        regWS.innerHTML = "";
         stats[8].innerHTML = parseInt(stats[8].innerHTML) + 5;
         aptitudes.innerHTML = "Defence, Fellowship, Leadership, Perception, Strength, Toughness, Weapon Skill";
         startingSkills.innerHTML = "Command, Navigate (surface) OR Scholalistic Lore(Tactica Imperilis)";
@@ -922,6 +926,7 @@ class CharacterGenerator{
 //gnerates the commisar class
     generateCommisar() {
         this.generateStats();
+        regWS.innerHTML = "";
         stats[8].innerHTML = parseInt(stats[8].innerHTML) + 5;
         aptitudes.innerHTML = "Agility, Fellowship, Finesse, Leadership, Perception, Weapon Skill, Willpower";
         startingSkills.innerHTML = "Command OR Intimidate, Common Lore(Imperial Guard), Scholalistic Lore(Tactica Imperilis)";
@@ -933,6 +938,7 @@ class CharacterGenerator{
 //generates the Priest class
     generatePriest() {
         this.generateStats();
+        regWS.innerHTML = "";
         stats[8].innerHTML = parseInt(stats[8].innerHTML) + 5;
         aptitudes.innerHTML = "Fellowship, Leadership, Perception, Social, Strength, Weapon Skill, Social, Strength, Weapon Skill, Willpower";
         startingSkills.innerHTML = "Charm, OR Inquiry, Common Lore(Ecclesiarchy), Forbidden Lore(Herasy), Scholastic Lore(Imperial Creed)";
@@ -944,6 +950,7 @@ class CharacterGenerator{
     //generates the Ogryn class
     generateOrgyn(){
         this.generateStats();
+        regWS.innerHTML = "";
         stats[2].innerHTML = parseInt(stats[2].innerHTML) + 10;
         stats[3].innerHTML = parseInt(stats[3].innerHTML) + 10;
         stats[5].innerHTML = parseInt(stats[5].innerHTML) - 15;
@@ -965,12 +972,12 @@ class CharacterGenerator{
         startingTalents.innerHTML = "Deadeye Shot, Heightened Senses(Sight, Smell, Taste) OR Light sleeper, Weapon Training(Las, Solid Projectile)";
         startingTraits.innerHTML = "Size(I'm sorry, but the book calls it 'Weedy' and I'm not about that life. Your size is small)"
         specialistEquip.innerHTML = "Good craftmanship Long Las OR Good craftmanship Sniper Rifle with Telescopic Sight, Chameleline Cloak";
-        
+        regWS.innerHTML = "";
         HP.innerHTML = parseInt(5 + roll5());
         className.innerHTML = "Ratling";
         this.generateStats();
         stats[6].innerHTML = parseInt(stats[6].innerHTML) + 10;
-        stats[9].innerHTML = parseInt(stats[9].innerHTML) + 10;
+        stats[8].innerHTML = parseInt(stats[8].innerHTML) + 10;
         stats[3].innerHTML = parseInt(stats[3].innerHTML) - 10;
         
     }
@@ -978,6 +985,7 @@ class CharacterGenerator{
     //maybe consider randomly generating their powers too?
     generatePsyker() {
         this.generateStats();
+        regWS.innerHTML = "";
         stats[8].innerHTML = parseInt(stats[8].innerHTML) + 5;
         aptitudes.innerHTML = "Intelligence, Knowlage, Perception, Psyker, Strength, Willpower";
         startingSkills.innerHTML = "Comon Lore(Adeptus Astra Telepathica), Forbidden Lore(Psykers), Psyniscience, Scholastic Lore(Cryptology)";
@@ -989,6 +997,7 @@ class CharacterGenerator{
     //generates the Storm Trooper class
     generateStormTrooper() {
         this.generateStats();
+        regWS.innerHTML = "";
         stats[3].innerHTML = parseInt(stats[3].innerHTML) + 5;
         aptitudes.innerHTML = "Agility, Balistic Skill, Fieldcraft, Finnese, Offence, Toughness";
         startingSkills.innerHTML = "Awarenes, Dodge OR Parry, Intimidate OR Security, Scholastic Lore(Tactica Impirialis), Stealth";
@@ -1000,6 +1009,7 @@ class CharacterGenerator{
     //generates the Tech Priest class
     generateTechPriest() {
         this.generateStats();
+        regWS.innerHTML = "";
         stats[5].innerHTML = parseInt(stats[5].innerHTML) + 5;
         aptitudes.innerHTML = "Balistics Skill, Intlligence, Knowlage, Strength, Tech, Toughness, Weapon Skill, Willpower";
         startingSkills.innerHTML = "Common Lore(Adeptus Mechanicus, Tech), Forbidden Lore(Adeptus Mechanicus,) Forbidden Lore(Archeotech) OR Logic, Tech Use";
