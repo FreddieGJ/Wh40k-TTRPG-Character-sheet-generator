@@ -163,6 +163,9 @@ const roll5 = () => {
     return Math.floor(Math.random() * 4) +1
 }
 
+points = 12;
+    pointsDisp.innerHTML = points;
+
     //pre-selected regiment choices
     document.getElementById("regimentChoice").addEventListener("change", function() {
         var selectedValue = this.value;
