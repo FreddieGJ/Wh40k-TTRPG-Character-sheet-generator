@@ -4,14 +4,20 @@
 </head>
 <body>
     <div class="banner">
-        <h1>Only War Character Sheet Generator</h1>
+        <h1>Only War Character Sheet Generator 0.4</h1>
     </div>
     <!--Regiment generator buttons-->
-
     <div id="characterSheet">
-        <button onclick="characterGenerator.clear()">Clear All</button>
-        <select id="regimentChoice">
-            <option value="0">Select Regiment</option>
+
+<div class="container">
+
+    <!--div containing all the buttons and lists for character generation-->
+    <div class="regClassChoices">
+        <!--lists for regiment / character creation-->
+        <div class="choices">
+                <div class="regimentBox">
+                <select id="regimentChoice">
+            <option value="0">Select pre-made Regiment</option>
             <option value="1">Cadia</option>
             <option value="2">Catachan</option>
             <option value="3">Krieg</option>
@@ -20,35 +26,25 @@
             <option value="6">Mordian Iron Guard</option>
             <option value="7">Tallarn Desert Raiders</option>
             <option value="8">Vostroyan Firstborn</option>
+                </select>
+                </div>
+                <div class="regimentBox">
+        <select id="specialtyChoices">
+            <option value="0">Select Character Specialty</option>
+            <option value="1">Heavy Gunner</option>
+            <option value="2">Medic</option>                        <option value="3">Operator</option>
+            <option value="4">Sergeant</option>
+            <option value="5">Specialist</option>
+            <option value="6">Commisar</option>
+            <option value="7">Ministorum Priest</option>
+            <option value="8">Ogryn</option>
+            <option value="9">Ratling</option>
+            <option value="10">Psyker</option>
+            <option valie="11">Storm Trooper</option>
+            <option value="12">Tech Priest</option>
         </select>
-        <button onclick = "regimentGenerator.generateRegiment()">Generate Random Regiment</button>
-        <span id="tooltip">Warning! This may make a regiment that is unbalenced</span>
-        <!--Class and stat generator buttons-->
-        <div id="charButtons">
-            Choose specialty / Class<br>
-            <button id="generateRandom" onclick="characterGenerator.generateCharacter()">Random Character</button>
-            <button id="heavyGunner" onclick="characterGenerator.generateHeavyGunner()">Heavy Gunner</button>
-            <button id="medic" onclick="characterGenerator.generateMedic()">Medic</button>
-            <button id="operator" onclick="characterGenerator.generateOperator()" >Operator</button>
-            <button id="sergeant" onclick="characterGenerator.generateSergeant()"  >Sergeant</button>
-            <button id="weaponSpecialist" onclick="characterGenerator.generateSpecialist()" >Weapon Specialist</button>
-            <button id="commisar" onclick="characterGenerator.generateCommisar()" >Commisar</button>
-            <button id="ministorumPriest" onclick="characterGenerator.generatePriest()" >Ministorum Priest</button>
-            <button id="ogryn" onclick="characterGenerator.generateOrgyn()" >Ogryn</button>
-            <button id="ratling" onclick="characterGenerator.generateRatling()" >Ratling</button>
-            <button id="Psyker" onclick="characterGenerator.generatePsyker()" >Sanctioned Psyker</button>
-            <button id="stormTrooper" onclick="characterGenerator.generateStormTrooper()" >Storm Trooper</button>
-            <button id="techpriest" onclick="characterGenerator.generateTechPriest()" >Tech Priest</button>
-        </div>
-        <div id="classDisplay">Specialty / Class:<div id="className"></div></div>
-        <div id="regPoints">Points left: WIP<div id="pointsDisp"></div></div>
-       
-        <div id="classDisplay">Specialty / Class:<div id="className"></div></div>
-       
-    <div class="regimentStats">
-        <div class="regChoices">
-        <div class="regimentBox">
-            Home World:
+                </div>
+                <div class="regimentBox">
                 <select id="homeWorldSelect">
                     <option value="0">Select Homeworld</option>
                     <option value="1">Death World 3</option>
@@ -60,10 +56,8 @@
                     <option value="7">Penitant 3</option>
                     <option value="8">Schola Progenium 3</option>
                 </select>
-            <div id="HomeWorldDisp" class="regementDisp regAddition"></div>
-        </div>
-        <div class="regimentBox">
-            Commanding Officer:
+                </div>
+                <div class="regimentBox">
             <select id="officerSelect">
                 <option value="0">Select Officer</option>
                 <option value="1">Bilious 2</option>
@@ -75,11 +69,9 @@
                 <option value="7">Phelgmatic 1</option>
                 <option value="8">Sanguine 2</option>
                 <option value="9">Supine 1</option>
-            </select>
-            <div id="officerDisplay" class="regementDisp regAddition"></div>
-        </div>
-        <div class="regimentBox">
-            Training Doctrine:
+            </select>  
+                </div>
+                <div class="regimentBox">
             <select id="trainingDoctrineSelect">
                 <option value="0">Select Training Doctrine</option>
                 <option value="1">Close Order Drill 2</option>
@@ -90,12 +82,8 @@
                 <option value="6">Sharp Shooters 4</option>
                 <option value="7">Survivalists 4</option>
             </select>
-            <div id="trainingDoc" class="regementDisp regAddition"></div>
-        </div>
-    </div>
-    <div class="regChoices">
-        <div class="regimentBox">
-            Regiment Type:
+                </div>
+                <div class="regimentBox">
             <select id="regimentTypeSelect">
                 <option value="0">Select Regiment Type</option>
                 <option value="1">Armored regiment 4</option>
@@ -107,10 +95,8 @@
                 <option value="7">Mechanised Infantry 3</option>
                 <option value="8">Seige Infantry 2</option>
             </select>
-            <div id="regimentTypeDisp" class="regementDisp regAddition"></div>
-        </div>
-        <div class="regimentBox">
-            Special Equiptment:
+                </div>
+                <div class="regimentBox">
             <select id="specialEquiptmentSelect">
                 <option value="0">Select Special Equiptment</option>
                 <option value="1">Augmetics 2</option>
@@ -118,31 +104,59 @@
                 <option value="3">Combat Drugs 2</option>
                 <option value="4">Demolitions 3</option>
                 <option value="5">Scavengers 3</option>
-                <option value="6">Line Infantry 2</option>
-                <option value="7">Mechanised Infantry 3</option>
-                <option value="8">Seige Infantry 2</option>
+                <option value="6">Warrior Weapons 3</option>
+                <option value="7">Well Provisioned 3</option>
             </select>
-            <div id="specialEquiptmentDisp" class="regementDisp regAddition"></div>
+                </div>
         </div>
-    </div>
+                <!--buttons for character / regiment creation-->
+        <div class="btnsDisp">
+                <button class="btnDispItem" onclick="regimentGenerator.generateFavoredWeapons()">Generate Favored Weapons</button>
+                <button class="btnDispItem" onclick="characterGenerator.clear()">Clear All</button>
+                <button class="btnDispItem" onclick = "regimentGenerator.generateRegiment()">Generate Random Regiment</button>
+                <button class="btnDispItem" onclick = "characterGenerator.generateCharacter()">Generate random Specialty</button>
+                <div class="btnDispItem" id="classDisplay">
+                    Specialty / Class:<div id="className"></div>
+                </div>
+                <!--points display-->
+                <div class="btnDispItem" id="regPoints">
+                    Points left: <div id="pointsDisp"></div>
+                </div>
+        </div>
+    </div>   
+        
+        <div class="regimentStats">
+            <div class="regimentBox">
+            Favored Weapon 1:<div id="favoredWeapons1Disp" class="regementDisp red"></div>
+            </div>
+            <div class="regimentBox">
+           Favored Weapon 2:<div id="favoredWeapons2Disp" class="regementDisp red"></div>
+            </div>
+            <div class="regimentBox">
+           Pre-made Regiment Bonus:<div id="regimentBonus" class="regementDisp red"></div>
+            </div>
+            <div class="regimentBox">
+           HomeWorld Bonus:<div id="homeWorldBonus" class="regementDisp red"></div>
+            </div>
+            <div class="regimentBox">
+           Home World:<div id="HomeWorldDisp" class="regementDisp red"></div>
+            </div>
+            <div class="regimentBox">
+           Commanding Officer:<div id="officerDisplay" class="regementDisp red"></div>
+            </div>
+            <div class="regimentBox">
+           Training Doctrine:<div id="trainingDoc" class="regementDisp red"></div>
+            </div>
+            <div class="regimentBox">
+           Regiment Type:<div id="regimentTypeDisp" class="regementDisp red"></div>
+            </div>
+            <div class="regimentBox">
+           Special Equiptment:<div id="specialEquiptmentDisp" class="regementDisp red"></div>
+            </div>
+        </div>
 </div>
-    <div class="regimentStats">
-        <button onclick="regimentGenerator.generateFavoredWeapons()">Generate Favored Weapons</button>
-        <div class="regimentBox">
-            Favored Weapon 1:<div id="favoredWeapons1Disp" class="regementDisp regAddition"></div>
-       </div>
-       <div class="regimentBox">
-           Favored Weapon 2:<div id="favoredWeapons2Disp" class="regementDisp regAddition"></div>
-       </div>
-       <div class="regimentBox">
-           Pre-made Regiment Bonus:<div id="regimentBonus" class="regementDisp regAddition"></div>
-       </div>
-       <div class="regimentBox">
-           HomeWorld Bonus:<div id="homeWorldBonus" class="regementDisp regAddition"></div>
-       </div>
-    </div>
 
-<div class="characterSheet">
+    <div class="characterSheet">
     <div class="topSheet"> 
         HP:
         <div id="HP" class="charsheet"></div><div id="regHP" class="regAddition"></div>
@@ -153,70 +167,90 @@
         Run:<div id="run" class="moveDisp"></div>
         </div>
     </div>
-    <div class="skills">
+
+<div class="contentBox">
+
+<div class="skillBox">
         <div class="skill">
-            Weapon Skill: <div id="weaponSkill" class="skillsheet"></div>
+            Weapon Skill:
+            <div class="skillItem">
+             <br><div id="weaponSkill" class="skillsheet"></div>
             <div id="regWS" class="regAddition"></div>
-            <div id="trainingWS" class="regAddition"></div>
-            Balistic Skill:<div id="balisticSkill" class="skillsheet"></div>
+            </div>
+            Balistic Skill:
+            <div class="skillItem">
+             <br><div id="balisticSkill" class="skillsheet"></div>
             <div id="regBS" class="regAddition"></div>
-            Strength:<div id="strength" class="skillsheet"></div>
+            </div>
+            Strength: 
+            <div class="skillItem">
+            <br><div id="strength" class="skillsheet"></div>
             <div id="regStr" class="regAddition"></div>
+            </div>
         </div>
         <div class="skill">
-            Toughness:<div id="toughnes" class="skillsheet"></div>
+            Toughness: 
+            <div class="skillItem">
+            <br><div id="toughnes" class="skillsheet"></div>
             <div id="regTough" class="regAddition"></div>
-            Agility:<div id="agility" class="skillsheet"></div>
+            </div>
+            Agility:
+            <div class="skillItem">
+             <br><div id="agility" class="skillsheet"></div>
             <div id="regAGY" class="regAddition"></div>
-            Intelligence:<div id="intelligence" class="skillsheet"></div>
+            </div>
+            Intelligence: 
+            <div class="skillItem">
+            <br><div id="intelligence" class="skillsheet"></div>
             <div id="regINT" class="regAddition"></div>
+            </div>
         </div>
         <div class="skill">
-            Perception:<div id="perception" class="skillsheet"></div>
+            Perception: 
+        <div class="skillItem">
+            <br><div id="perception" class="skillsheet"></div>
             <div id="regPER" class="regAddition"></div>
-            Willpower:<div id="willpower" class="skillsheet"></div>
+            </div>
+            Willpower: 
+            <div class="skillItem">
+            <br><div id="willpower" class="skillsheet"></div>
             <div id="regWILL" class="regAddition"></div>
-            Fellowship:<div id="fellowship" class="skillsheet"></div>
+            </div>
+            Fellowship: 
+            <div class="skillItem">
+            <br><div id="fellowship" class="skillsheet"></div>
             <div id="regFEL" class="regAddition"></div>
+            </div>
         </div>
-     </div>   
-<div class="startingthings">
+</div>   
 
-     <div class="startingTraits">
-        <div class="startingStuffs">
+<div class="startingTraits traitsBox">
+        <div id="attributes">
             Aptitudes:<div id="aptitudes" class="charsheet"></div>
-            <div id="regAptitudes" class="regAddition"></div>
-            <div id="trainingAptitudes" class="regAddition"></div>
-        </div>
-        <div class="startingStuffs">
+            <div id="regAptitudes" class="red"></div>
+            <div id="trainingAptitudes" class="regd"></div>
             Starting Skills:<div id="startingSkills" class="charsheet"></div>
-            <div id="regSkills" class="regAddition"></div>
-            <div id="officerSkills" class="regAddition"></div>
-            <div id="trainingSkills" class="regAddition"></div>
-            <div id="specialSkills" class="regAddition"></div>
-        </div>
-        <div class="startingStuffs">
+            <div id="regSkills" class="red"></div>
+            <div id="officerSkills" class="red"></div>
+            <div id="trainingSkills" class="red"></div>
+            <div id="specialSkills" class="red"></div>
             Starting Talents:<div id="startingTalents" class="charsheet"></div>
-            <div id="regTalents" class="regAddition"></div>
-            <div id="officerTalents" class="regAddition"></div>
-            <div id="trainingTalents" class="regAddition"></div>
-        </div>
-        <div class="startingStuffs">
+            <div id="regTalents" class="red"></div>
+            <div id="officerTalents" class="red"></div>
+            <div id="trainingTalents" class="red"></div>
             Starting Traits:<div id="startingTraits" class="charsheet"></div>
-            <div id="regTraits" class="regAddition"></div>
-        </div>
-        <div class="startingStuffs">
+            <div id="regTraits" class="red"></div>
             Specialist Equiptment:<div id="specialistEquip" class="charsheet"></div>
-            <div id="regEquip" class="regAddition"></div>
-            <div id="trainingEquip" class="regAddition"></div>
-            <div id="specialEquip" class="regAddition"></div>
+            <div id="regEquip" class="red"></div>
+            <div id="trainingEquip" class="red"></div>
+            <div id="specialEquip" class="red"></div>
         </div>
-        </div>
+</div>
 
-        <div class="startingStuffs" id="standardEquip">
+<div class="equiptmentBox" id="standardEquip">
             Standard Equiptment:
             <ul>
-                <div id="regimentStandardEquiptment"><li>1 Uniform</li>
+                <div id="regimentstandardEquiptment"><li>1 Uniform</li>
                 <li>1 set of bad weather gear</li>
                 <li>1 Laspistol and 2 charge Packs</li>
                 <li>1 Knife</li>
@@ -229,14 +263,14 @@
                 <li>1 Grooming Kit</li>
                 <li>1 set of identification tags</li>
                 <li>1 Primer (very reliable instructions on enimes)</li>
-                <li>Combat Sustanence Rations, two weeks supply</li></div>
-                <li>Additional Gear Granted By Regiment Type:<div class="regAddition" id="regBonusEquip"></div></li>
+                <li>Combat Sustanence Rations, two weeks supply</li>
+                <li>Additional Gear Granted By Regiment Type:<div class="red" id="regBonusEquip"></div></li>
             </ul>
-        </div>
+</div>
+
     </div>
     </div>
-    </div>
-    <!--<script src="js.js"></script>-->
+
     <script src="charGen.js"></script>
 </body>
 
