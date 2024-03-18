@@ -15,7 +15,6 @@ var trainingAptitudes = document.getElementById("trainingAptitudes");
 var trainingTalents = document.getElementById("trainingTalents");
 var trainingSkills = document.getElementById("trainingSkills");
 var trainingEquip = document.getElementById("trainingEquip");
-var trainingWS = document.getElementById("trainingWS");
 var specialEquip = document.getElementById("specialEquip");
 var specialSkills = document.getElementById("specialSkills");
 
@@ -198,6 +197,51 @@ const pointsCalc = (choice, list) => {
 
   return pointsDeducted;
 }
+
+    //class choices
+    document.getElementById("specialtyChoices").addEventListener("change", function() {
+        var selectedValue = this.value;
+
+        switch(selectedValue){
+            case "1":
+                characterGenerator.generateHeavyGunner()
+            break;
+            case "2":
+                characterGenerator.generateMedic()
+            break;
+            case "3":
+                characterGenerator.generateOperator()
+            break;
+            case "4":
+                characterGenerator.generateSergeant()
+            break;
+            case "5":
+                characterGenerator.generateSpecialist()
+            break;
+            case "6":
+                characterGenerator.generateCommisar()
+            break;
+            case "7":
+                characterGenerator.generatePriest()
+            break;
+            case "8":
+                characterGenerator.generateOrgyn()
+            break;
+            case "9":
+                characterGenerator.generateRatling()
+            break;
+            case "10":
+                characterGenerator.generatePsyker()
+            break;
+            case "11":
+                characterGenerator.generateStormTrooper()
+            break;
+            case "12":
+                characterGenerator.generateTechPriest()
+            break;
+        }
+    });
+
     //pre-selected regiment choices
     document.getElementById("regimentChoice").addEventListener("change", function() {
         var selectedValue = this.value;
@@ -312,7 +356,6 @@ const pointsCalc = (choice, list) => {
         trainingAptitudes.innerHTML = "";
         trainingEquip.innerHTML = "";
         trainingSkills.innerHTML = "";
-        trainingWS.innerHTML = "";
 
         var pointsDeducted = pointsCalc(selectedValue, "trainingDoctrine");
         points -= pointsDeducted;
@@ -521,7 +564,7 @@ class RegimentGenerator{
         trainingTalents.innerHTML += "Hatred(Choose 1)";
         trainingSkills.innerHTML += "Forbidden lore(Choose 1)";
     };hardenedFightersDoc() {
-        trainingWS.innerHTML += "Weapon Skill +2";
+        regWS.innerHTML += "+2";
         trainingTalents.innerHTML += "Street Fighting";
         trainingEquip.innerHTML += "Replace standard Melee Weapon with Common or Low-tech melee Weapon OR apply the Mono Upgrade to standard melee weapon";
         
@@ -537,19 +580,19 @@ class RegimentGenerator{
     //Regiment Types
     armoredRegiment() {
         regWS.innerHTML += "-3"; regINT.innerHTML += "+3";
-            regSkills.innerHTML += "Operate(Surface)";
-            regTalents.innerHTML += "Technical Knock";
-            regBonusEquip.innerHTML += "One Leman Russ Battle Tank (or varient), One Annointed Maintenance Toolkit (Per player)"
+        regSkills.innerHTML += "Operate(Surface)";
+        regTalents.innerHTML += "Technical Knock";
+        regBonusEquip.innerHTML += "One Leman Russ Battle Tank (or varient), One Annointed Maintenance Toolkit (Per player)"
     };reconType() {
         regPER.innerHTML += "+3"; regWILL.innerHTML += "-3";
-            regSkills.innerHTML += "Awareness";
-            regTalents.innerHTML += "Combat Sense";
-            regBonusEquip.innerHTML += "One Sentinel Scout Walker OR One ChimeraArmored Transport per Squad, One set of Magnoculars";
+        regSkills.innerHTML += "Awareness";
+        regTalents.innerHTML += "Combat Sense";
+        regBonusEquip.innerHTML += "One Sentinel Scout Walker OR One ChimeraArmored Transport per Squad, One set of Magnoculars";
     };dropTroops(){
         regAGY.innerHTML += "+3"; regFEL.innerHTML = "-3";
-            regSkills.innerHTML += "Operate(Aronautica)";
-            regTalents.innerHTML += "Catfall";
-            regBonusEquip.innerHTML += "One lascarbine and 4 Charge Packs per player (Main Weapon), One suit of Imperial Guard Flak Armor per Character, One Respirator Per Character, One Grav-Chute per Player, Two Frak and Krak Grenades";
+        regSkills.innerHTML += "Operate(Aronautica)";
+        regTalents.innerHTML += "Catfall";
+        regBonusEquip.innerHTML += "One lascarbine and 4 Charge Packs per player (Main Weapon), One suit of Imperial Guard Flak Armor per Character, One Respirator Per Character, One Grav-Chute per Player, Two Frak and Krak Grenades";
     };hunterKillers(){
         regBS.innerHTML += "+3"; regStr.innerHTML = "-3";
         regSkills.innerHTML += "Operate(Surface)";
@@ -557,25 +600,25 @@ class RegimentGenerator{
         regBonusEquip.innerHTML += "One Sentinel Scout Walker OR One HellHound Support Tank per Squad";
     };lightInfantry() {
         regAGY.innerHTML += "+3";
-            regTough.innerHTML += "-3";
-            regSkills.innerHTML += "Navigate(Surface)";
-            regTalents.innerHTML += "Sprint";
-            regBonusEquip.innerHTML += "One Lascarbine and 4 Charge Pack per player (Main Weapon), One Flak Vest and One Flak Helmet Per Player, Two Frag Grenades and Two Smoke Grenades Per Player";
+        regTough.innerHTML += "-3";
+        regSkills.innerHTML += "Navigate(Surface)";
+        regTalents.innerHTML += "Sprint";
+        regBonusEquip.innerHTML += "One Lascarbine and 4 Charge Pack per player (Main Weapon), One Flak Vest and One Flak Helmet Per Player, Two Frag Grenades and Two Smoke Grenades Per Player";
     };lineInfantry() {
         regStr.innerHTML += "+3"; regINT.innerHTML = "-3";
-            regSkills.innerHTML += "Athetics";
-            regTalents.innerHTML += "Rapid Reload";
-            regBonusEquip.innerHTML += "One M36 Lasgun and 4 charge packs per Player(Main Weapon), One suit of Imperial Guard Flak Armor Per Player, Two Frak and Krak Grenades Per Player";
+        regSkills.innerHTML += "Athetics";
+        regTalents.innerHTML += "Rapid Reload";
+        regBonusEquip.innerHTML += "One M36 Lasgun and 4 charge packs per Player(Main Weapon), One suit of Imperial Guard Flak Armor Per Player, Two Frak and Krak Grenades Per Player";
     };mechanisedInfantry(){
         regAGY.innerHTML += "+3"; regPER.innerHTML = "-3";
-            regSkills.innerHTML += "Operate(Surface)";
-            regTalents.innerHTML += "Rapid Reload";
-            regBonusEquip.innerHTML += "One M36 Lasgun and 4 charge packs per Player(Main Weapon), One suit of Imperial Guard Flak Armor Per Player, Two Frak and Krak Grenades Per Player, One Chimera Armored Transport Per Squad";
+        regSkills.innerHTML += "Operate(Surface)";
+        regTalents.innerHTML += "Rapid Reload";
+        regBonusEquip.innerHTML += "One M36 Lasgun and 4 charge packs per Player(Main Weapon), One suit of Imperial Guard Flak Armor Per Player, Two Frak and Krak Grenades Per Player, One Chimera Armored Transport Per Squad";
     };seigeInfantry(){
         regTough.innerHTML += "+3"; regINT.innerHTML = "-3";
-            regSkills.innerHTML += "Tech Use";
-            regTalents.innerHTML += "Nerves Of Steel";
-            regBonusEquip.innerHTML += "One M36 Lasgun with 4 charge Packs per Player (Main Weapon), One Suit of Imperial Guard Flak Armour Per Player, One respierator Per Player, 4 Empty Sandbags and One Entrenching Tool Per Player, Two Frag Grenades and two Photon Grenades Per Player";
+        regSkills.innerHTML += "Tech Use";
+        regTalents.innerHTML += "Nerves Of Steel";
+        regBonusEquip.innerHTML += "One M36 Lasgun with 4 charge Packs per Player (Main Weapon), One Suit of Imperial Guard Flak Armour Per Player, One respierator Per Player, 4 Empty Sandbags and One Entrenching Tool Per Player, Two Frag Grenades and two Photon Grenades Per Player";
     };
     //Special Equiptment
     augmeticEquip() {
@@ -605,7 +648,6 @@ class RegimentGenerator{
         trainingSkills.innerHTML = "";
         trainingAptitudes.innerHTML = ""
         trainingEquip.innerHTML = "";
-        trainingWS.innerHTML = "";
         specialEquip.innerHTML = "";
         specialSkills.innerHTML = "";
         regWS.innerHTML = "";
@@ -862,7 +904,6 @@ class RegimentGenerator{
     
 };
 
-
 class CharacterGenerator{
     constructor(stats){
         this.stats = stats;
@@ -936,7 +977,6 @@ class CharacterGenerator{
 //generates the Heavy gunner class
     generateHeavyGunner() {
         this.generateStats();
-        regWS.innerHTML = "";
         stats[3].innerHTML = parseInt(stats[3].innerHTML) + 5;
         aptitudes.innerHTML = "Balistic Skill, Defence, Fellowship, Offence, Perception, Toughness";
         startingSkills.innerHTML = "Choose Athetics or survival. Common Lore(Imperial Guard) Intimidate.";
@@ -948,7 +988,6 @@ class CharacterGenerator{
 // generates the Medic class
     generateMedic() {
         this.generateStats();
-        regWS.innerHTML = "";
         stats[5].innerHTML = parseInt(stats[5].innerHTML) + 5;
         aptitudes.innerHTML = "Balistic Skill, Fieldcraft, Intelligence, Knowledge, Perception, Willpower";
         startingSkills.innerHTML = "Medicae, Lore(Chemistry), Scrutiny OR Trade (Medical Supplies)";
@@ -960,7 +999,6 @@ class CharacterGenerator{
 //generates the Operator class
     generateOperator() {
         this.generateStats();
-        regWS.innerHTML = "";
         stats[4].innerHTML = parseInt(stats[4].innerHTML) + 5;
         aptitudes.innerHTML = "Agility, Balistic Skill, Fellowship, Fieldcraft, Intelligence, Tech";
         startingSkills.innerHTML = "Common Lore (Tech) OR Navigate (Surface), Operate (Surface), Tech-Use";
@@ -972,7 +1010,6 @@ class CharacterGenerator{
 //generates the Sergeant class
     generateSergeant() {
         this.generateStats();
-        regWS.innerHTML = "";
         stats[8].innerHTML = parseInt(stats[8].innerHTML) + 5;
         aptitudes.innerHTML = "Defence, Fellowship, Leadership, Perception, Strength, Toughness, Weapon Skill";
         startingSkills.innerHTML = "Command, Navigate (surface) OR Scholalistic Lore(Tactica Imperilis)";
@@ -984,9 +1021,9 @@ class CharacterGenerator{
 //generates the Specialist class
     generateSpecialist(){
         this.generateStats();
-        regWS.innerHTML += "Add +3 to either Weapon Skill or Balistic Skill";
+        startingSkills.innerHTML += "<p>Add +3 to either Weapon Skill or Balistic Skill</p>";
         aptitudes.innerHTML = "Agility, Balistic Skill, Fellowship, Fieldcraft, Finesse, Weapon Skill";
-        startingSkills.innerHTML = "Athetics OR Survival, Navigate (Surface), Common Lore(Imperial Guard, War";
+        startingSkills.innerHTML += "Athetics OR Survival, Navigate (Surface), Common Lore(Imperial Guard, War";
         startingTalents.innerHTML = "Lasgun Barrage OR Rapid Reload, Weapon Training (Bolt, Chain, Flame, Las, Launcher, Melta, Plasma, Low-Tech, Solid Projectile)";
         specialistEquip.innerHTML = "4 Frag OR Krak Grenades, Good Craftmanship Lasgun OR Common craftmanship Flamer OR Common Craftmahsip Shotgun OR Common Craftmanship Regimental Favored Weapon";
         HP.innerHTML = parseInt(8 + roll5());
@@ -1104,7 +1141,6 @@ class CharacterGenerator{
         specialEquptmentDisp.innerHTML = "";
         favoredWeapons1Disp.innerHTML = "";
         favoredWeapons2Disp.innerHTML = "";
-        trainingWS.innerHTML = "";
         regWS.innerHTML = "";
         regBS.innerHTML = "";
         regStr.innerHTML = "";
