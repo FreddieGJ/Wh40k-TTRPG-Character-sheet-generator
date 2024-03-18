@@ -19,19 +19,8 @@ body {
     padding: 20px;
     text-align: center;
 }
-
 .banner h1 {
     font-size: 24px;
-}
-
-/* Container styles */
-#characterSheet {
-    margin: 20px auto;
-    max-width: auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Class Display styles */
@@ -47,31 +36,71 @@ body {
 .moveContainer{
     white-space: nowrap;
 }
-
 .charsheet {
     display: inline-block;
     width: auto;
-    background-color: #f2f2f2;
     padding: 5px;
     border-radius: 5px;
     text-align: center;
     margin-right: 10px;
 }
 
-.regAddition {
-    font-size: 12px;
-    color: red;
-}
-
 /* Regiment Stats styles */
-.regimentStats {
-    margin-bottom: 20px;
+.container{
     display:flex;
-    justify-content: space-around;
+    justify-content:space-evenly;
 }
-
-.regimentBox {
-    margin-bottom: 10px;
+.choices{
+    float:left;
+}
+.btnsDisp{
+    float:right;
+    max-width:250px;
+}
+.choices, .btnsDisp{
+    height:17em;
+    text-align:center;
+    background-color:lightgray;
+}
+.btnDispItem{
+    margin:4px;
+}
+#pointsDisp{
+    width: 30px;
+    background-color: #f2f2f2;
+    height:30px;
+    margin-left:auto;
+    margin-right:auto;
+}
+select{
+    width:14em;
+    text-align:center;
+}
+.regChoices, .regimentBox{
+    margin:15px;
+}
+.regimentStats{
+    background-color:lightgray;
+    overflow-y:auto;
+    max-height:17em;
+}
+.regChoices, .regimentStats{
+    width:500px;
+}
+.regimentBox{
+    margin:15px;
+}
+#characterSheet {
+    margin: 20px auto;
+    max-width: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.dispWrapper{
+    display:flex;
+    justify-content:space-evenly;
 }
 
 /* Movement area styles */
@@ -82,36 +111,78 @@ body {
 }
 
 /* Skills styles */
-.skills {
-    margin-bottom: 20px;
-    display:flex;
-    margin:0 auto;
-    width:fit-content;
-}
-
-.skill {
-    margin-bottom: 10px;
-}
 
 .skillsheet {
     display: inline-block;
-    width: 100px;
+    width: 30px;
     background-color: #f2f2f2;
     padding: 5px;
     border-radius: 5px;
     text-align: center;
     margin-right: 10px;
+    height:30px;
+}
+.regAddition {
+    color: red;
+    width: 30px;
+    background-color: #f2f2f2;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    margin-right: 10px;
+    height:30px;
+}
+.red{
+    color:red;
+}
+.skillItem{
+    margin-bottom:6em;
+    display:flex;
+}
+
+/*content box area*/
+.contentBox{
+    background-color:#f9f9f9;
+    border-radius: 5px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 0 10px rgba(0, 0, 0, 0.1);
+    display:flex;
+    justify-content: space-between;
+}
+.skillBox, .traitsBox, .equiptmentBox{
+    flex:1;
+    min-height:200px;
+    margin:auto;
+    width:auto;
+    max-width:400px;
+    height:400px;
+    padding:30px;
+    overflow-y: auto;
+}
+.skillBox{
+    margin-bottom: 20px;
+    display:flex;
+    margin:0 auto;
+    width:fit-content;
+}
+.skill{
+    margin:10px;
+}
+.skillBox{
+    background-color:lightgrey;
+}
+.traitsBox{
+    background-color:lightgrey;
+}
+.equiptmentBox{
+    background-color:lightgrey;
 }
 
 /* Starting Traits styles */
 .characterSheet{
     text-align:center;
 }
-
-.startingStuffs {
-    margin-bottom: 10px;
-}
-
 #regimentStandardEquiptment{
     list-style-type: none;
 }
@@ -127,7 +198,6 @@ button {
     margin-bottom: 10px;
     max-height:40px;
 }
-
 button:hover {
     background-color: #555;
 }
@@ -136,6 +206,12 @@ a{
 }
 a:hover ul{
     display:block;
+}
+ul{
+    list-style-type:none;
+}
+li{
+    margin:10px;
 }
 
 /* Select Regiment styles */
@@ -149,4 +225,15 @@ a:hover ul{
 }
 .genBtns {
     text-align:center;
+}
+
+/*smaller screens*/
+@media screen and (max-width:720px){
+        .container{
+            display:block;
+        }   
+        .contentBox{
+            display:block;
+        }
+        
 }
