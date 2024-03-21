@@ -4,7 +4,7 @@
 </head>
 <body>
     <div class="banner">
-        <h1>Only War Character Sheet Generator 0.4</h1>
+        <h1>Only War Character Sheet Generator 0.5</h1>
     </div>
     <!--Regiment generator buttons-->
     <div id="characterSheet">
@@ -12,7 +12,7 @@
 <div class="container">
 
     <!--div containing all the buttons and lists for character generation-->
-    <div class="regClassChoices">
+    <div class="regChoices">
         <!--lists for regiment / character creation-->
         <div class="choices">
                 <div class="regimentBox">
@@ -156,7 +156,7 @@
         </div>
 </div>
 
-    <div class="characterSheet">
+<div class="characterSheet">
     <div class="topSheet"> 
         HP:
         <div id="HP" class="charsheet"></div><div id="regHP" class="regAddition"></div>
@@ -168,9 +168,9 @@
         </div>
     </div>
 
-<div class="contentBox">
+    <div class="contentBox">
 
-<div class="skillBox">
+        <div class="skillBox">
         <div class="skill">
             Weapon Skill:
             <div class="skillItem">
@@ -222,9 +222,46 @@
             <div id="regFEL" class="regAddition"></div>
             </div>
         </div>
-</div>   
-
-<div class="startingTraits traitsBox">
+        </div>   
+<!--
+        <div class="training">
+            <ul>
+                <li>Acrobatics (AG)</li>
+                <li>Athetics (S)</li>
+                <li>Awareness(Per)</li>
+                <li>Charm(Fel)</li>
+                <li>Command(Fel)</li>
+                <li>Commerce(Fel)</li>
+                <li>Common Lore(Int)</li>
+                <li>Decive(Fel)</li>
+                <li>Dodge(AG)</li>
+                <li>Forbidden Lore(Int)</li>
+                <li>Inquiry(Fel)</li>
+                <li>Interrogation(WP)</li>
+                <li>Intimidate(S)</li>
+                <li>Linguistics(Int)</li>
+                <li>Logic(Int)</li>
+                <li>Medice(Int)</li>
+                <li>Navigate(Surface)(Int)</li>
+                <li>Navigate(Stellar)(Int)</li>
+                <li>Navigate(Warp)(Int)</li>
+                <li>Operate(Aronautica)(AG)</li>
+                <li>Operate(Surface)(AG)</li>
+                <li>Operate(Voidship)(AG)</li>
+                <li>Parry(WS)</li>
+                <li>Psyniscience(Per)</li>
+                <li>Scholastic Lore(Int)</li>
+                <li>Scrutiny(Per)</li>
+                <li>Security(Int)</li>
+                <li>Slight Of Hand(AG)</li>
+                <li>Stealth(AG)</li>
+                <li>Survival(Per)</li>
+                <li>Tech-use(Int)</li>
+                <li>Trade(Int)</li>
+            </ul>
+        </div>
+-->
+        <div class="traitsBox">
         <div id="attributes">
             Aptitudes:<div id="aptitudes" class="charsheet"></div>
             <div id="regAptitudes" class="red"></div>
@@ -245,9 +282,9 @@
             <div id="trainingEquip" class="red"></div>
             <div id="specialEquip" class="red"></div>
         </div>
-</div>
+        </div>
 
-<div class="equiptmentBox" id="standardEquip">
+        <div class="equiptmentBox" id="standardEquip">
             Standard Equiptment:
             <ul>
                 <div id="regimentstandardEquiptment"><li>1 Uniform</li>
@@ -266,11 +303,9 @@
                 <li>Combat Sustanence Rations, two weeks supply</li>
                 <li>Additional Gear Granted By Regiment Type:<div class="red" id="regBonusEquip"></div></li>
             </ul>
+        </div>
+    </div>
 </div>
-
-    </div>
-    </div>
-
-    <script src="charGen.js"></script>
+<script src="charGen.js"></script>
 </body>
 
