@@ -1032,7 +1032,6 @@ class CharacterGenerator{
 //gnerates the commisar class
     generateCommisar() {
         this.generateStats();
-        regWS.innerHTML = "";
         stats[8].innerHTML = parseInt(stats[8].innerHTML) + 5;
         aptitudes.innerHTML = "Agility, Fellowship, Finesse, Leadership, Perception, Weapon Skill, Willpower";
         startingSkills.innerHTML = "Command OR Intimidate, Common Lore(Imperial Guard), Scholalistic Lore(Tactica Imperilis)";
@@ -1044,7 +1043,6 @@ class CharacterGenerator{
 //generates the Priest class
     generatePriest() {
         this.generateStats();
-        regWS.innerHTML = "";
         stats[8].innerHTML = parseInt(stats[8].innerHTML) + 5;
         aptitudes.innerHTML = "Fellowship, Leadership, Perception, Social, Strength, Weapon Skill, Social, Strength, Weapon Skill, Willpower";
         startingSkills.innerHTML = "Charm, OR Inquiry, Common Lore(Ecclesiarchy), Forbidden Lore(Herasy), Scholastic Lore(Imperial Creed)";
@@ -1056,7 +1054,6 @@ class CharacterGenerator{
     //generates the Ogryn class
     generateOrgyn(){
         this.generateStats();
-        regWS.innerHTML = "";
         stats[2].innerHTML = parseInt(stats[2].innerHTML) + 10;
         stats[3].innerHTML = parseInt(stats[3].innerHTML) + 10;
         stats[5].innerHTML = parseInt(stats[5].innerHTML) - 15;
@@ -1075,7 +1072,6 @@ class CharacterGenerator{
     generateRatling() {
         this.generateStats();
         HP.innerHTML = parseInt(5 + roll5());
-        regWS.innerHTML = "";
         className.innerHTML = "Ratling";
         aptitudes.innerHTML = "Agility, Balistic Skill, Fellowship, Fieldcraft, Finnese, Perception, Social";
         startingSkills.innerHTML = "Awareness OR Stealth, Decive, Trade(Cook)";
@@ -1091,7 +1087,6 @@ class CharacterGenerator{
     generatePsyker() {
         this.generateStats();
         stats[8].innerHTML = parseInt(stats[8].innerHTML) + 5;
-        regWS.innerHTML = "";
         aptitudes.innerHTML = "Intelligence, Knowledge, Perception, Psyker, Strength, Willpower";
         startingSkills.innerHTML = "Comon Lore(Adeptus Astra Telepathica), Forbidden Lore(Psykers), Psyniscience, Scholastic Lore(Cryptology)";
         startingTalents.innerHTML = "Hightened Senses(Hearing), Up to 400xp worth of Psychic Powers, Weapon Traning(Las, Solid Projectile, Low Tech)";
@@ -1102,7 +1097,6 @@ class CharacterGenerator{
     //generates the Storm Trooper class
     generateStormTrooper() {
         this.generateStats();
-        regWS.innerHTML = "";
         stats[3].innerHTML = parseInt(stats[3].innerHTML) + 5;
         aptitudes.innerHTML = "Agility, Balistic Skill, Fieldcraft, Finnese, Offence, Toughness";
         startingSkills.innerHTML = "Awarenes, Dodge OR Parry, Intimidate OR Security, Scholastic Lore(Tactica Impirialis), Stealth";
@@ -1114,7 +1108,6 @@ class CharacterGenerator{
     //generates the Tech Priest class
     generateTechPriest() {
         this.generateStats();
-        regWS.innerHTML = "";
         stats[5].innerHTML = parseInt(stats[5].innerHTML) + 5;
         aptitudes.innerHTML = "Balistics Skill, Intlligence, Knowledge, Strength, Tech, Toughness, Weapon Skill, Willpower";
         startingSkills.innerHTML = "Common Lore(Adeptus Mechanicus, Tech), Forbidden Lore(Adeptus Mechanicus,) Forbidden Lore(Archeotech) OR Logic, Tech Use";
